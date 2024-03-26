@@ -4,6 +4,7 @@ public class ex17 {
 
     public static void main(String[] args) {
 
+        makeTriangle(5);
     }
 
     /**
@@ -11,20 +12,35 @@ public class ex17 {
      */
     public static void makeTriangle( int n ){
 
+
         for( int i = 0 ; i < n; i++){
-
-            System.out.println("\n");
-
             String line = "";
 
-            for ( int j = 0; j < n; j++){
-
-
-
+            if( i != 0 ){
+                System.out.println("\n");
             }
+
+
+            for (int j =0; j <= i; j++){
+                line = line + "*";
+            }
+            System.out.println(line);
+
         }
 
 
     }
+    public static void makeTriangle2(int n) {
+        StringBuilder lineBuilder = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                lineBuilder.append("*");
+            }
+            System.out.println(lineBuilder);
+            lineBuilder.setLength(0);
+        }
+    }
+
 
 }
