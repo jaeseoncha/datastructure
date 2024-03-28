@@ -14,16 +14,16 @@ public class q15 {
 
             if (i != 0){
 
-                System.out.println("\n");
+                System.out.printf("\n");
 
             }
 
-            for( int j =0; j < n -1 ; j ++ ){
-                System.out.println( " ");
+            for( int j =0; j < n -i -1; j ++ ){
+                System.out.printf( "a");
             }
 
             for ( int k =0; k < (i *2) + 1 ; k++) {
-                System.out.println( "*");
+                System.out.printf( "*");
 
             }
         }
