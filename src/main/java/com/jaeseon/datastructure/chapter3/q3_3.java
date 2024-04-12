@@ -31,6 +31,16 @@ public class q3_3 {
 
     public static void make( int [] a, int searchNum){
 
+        // 값이 있는 index를 체크  값이 있으면 양수 , 없으면 음수
+        int answerIndex = -1; 
+        for ( int i = 0; i <a.length; i++){
+            
+            if( a[i] == searchNum){
+                
+                answerIndex = i;
+            }
+        }
+        
 
         // 맨위 컬럼
         for ( int i =0; i<a.length +1; i++ ){
@@ -48,6 +58,7 @@ public class q3_3 {
             }
 
         }
+
 
         // 행
         for( int i = 0; i < a.length * 2 ; i++) {
@@ -69,7 +80,7 @@ public class q3_3 {
                         System.out.print(space);
 
                     }
-                    if( k==a.length){
+                    if( k==a.length ){
                         System.out.println("");
                     }
 
@@ -90,17 +101,29 @@ public class q3_3 {
                     else{
 
                         System.out.print(a[k-1]);
-
+                        
                     }
                     if( k==a.length){
                         System.out.println("");
                     }
+
 
                 }
 
             }
 
 
+            if(  answerIndex > 0  ){
+
+                if(  i == ( answerIndex *2  ) + 1 ){
+
+                    System.out.println("값찾음");
+                    break;
+
+                }               
+            }
+
         }
+
     }
 }
