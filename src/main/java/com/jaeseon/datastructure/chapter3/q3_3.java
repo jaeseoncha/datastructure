@@ -16,15 +16,13 @@ public class q3_3 {
         System.out.println( "지금부터" + arrayLength +"개 입력합니다.") ;
         for ( int i = 0 ; i< a.length; i++ ){
 
-            a[i] = scanner.nextInt();;
-
+            a[i] = scanner.nextInt();
         }
 
         System.out.println("검색할 숫자 : ");
         int searchNum =scanner.nextInt();
 
         make( a , searchNum);
-
 
     }
     static String space = "_";
