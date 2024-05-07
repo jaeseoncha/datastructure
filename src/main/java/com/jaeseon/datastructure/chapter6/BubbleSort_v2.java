@@ -2,7 +2,7 @@ package com.jaeseon.datastructure.chapter6;
 
 import java.util.Scanner;
 
-public class BubbleSort {
+public class BubbleSort_v2 {
 
 
 //    5개 기준으로  4번돌고 ,
@@ -42,6 +42,7 @@ public class BubbleSort {
         // 크게도는 횟수
         for( int i =0; i< length-1; i++){
 
+            int exchangeCnt = 0;
             // 교환하는 횟수
             for( int j = length-1; j>i; j-- ){
 //                for (int j = i; j < length - 1; j++) {
@@ -50,8 +51,15 @@ public class BubbleSort {
                 // 5    <  4
                 if( a[j] < a[j-1] ){
                     swap(a,j, j-1);
+                    // 교환하면 횟수 추가
+                    exchangeCnt ++;
                 }
 
+            }
+
+            if( exchangeCnt == 0){
+
+                break;
             }
         }
 
