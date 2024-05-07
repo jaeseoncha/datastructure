@@ -2,16 +2,18 @@ package com.jaeseon.datastructure.chapter6;
 
 import java.util.Scanner;
 
-public class BubbleSort_v3 {
+public class cocktailSort_v4 {
 
 
-//    5개 기준으로  4번돌고 ,
-//    안에서는 처음에는 4번, 두번째는 3번 세번째는 2번, 네번째는 1번
+    /**
+     * 나중에 다시볼것
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
 
-        int [] a = new int[]{ 1,3,9,4,7,8,6};
+        int [] a = new int[]{ 9,1,3,4,6,7,8};
 
 
         make( a , a.length);
@@ -29,34 +31,42 @@ public class BubbleSort_v3 {
      */
     public static void make( int[] a  , int n){
 
-        int k = 0; // a[k] 안쪽의 수는 정렬을 끝마친상태
+        int left = 0;
+        int right = n-1;
+        int last = right;
 
         int totalComparatorCnt = 0;
         int totalExchangeCnt = 0;
 
-        // 최대 7번
-        while ( k < n -1){
-//             3 <  6
-            int last = n-1; // 마지막 요소를 교환한 인덱스위치
-
-            for ( int j = n-1; j > k; j--){
-
+        while ( left < right ){
+            // 아래부터 정렬
+            for( int j = right; j> left; j--){
                 totalComparatorCnt++;
 
-                if( a[j-1] > a[j] ){
-
-                    swap(a,j-1,j);
-                    last = j;
+                if (a[j - 1] > a[j]){
                     totalExchangeCnt++;
+                    swap(a, j - 1, j);
+                    last = j;
                 }
-
             }
 
-            k = last;
+            left = last;
+
+            for( int j = left; j<right; j++){
+                totalComparatorCnt++;
+
+                if( a[j] > a[j+1]){
+                    totalExchangeCnt++;
+
+                    swap(a, j, j + 1);
+                    last = j;
+
+                }
+            }
+            right = last;
 
         }
         System.out.println( "totalComparatorCnt = " + totalComparatorCnt );
-
         System.out.println( "totalExchangeCnt = " + totalExchangeCnt );
 
 
