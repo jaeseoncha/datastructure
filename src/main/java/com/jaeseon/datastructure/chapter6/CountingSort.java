@@ -25,9 +25,32 @@ public class CountingSort {
             f[i] += f[ i-1];
         }
 
+        // 목표배열 ( n 숫자만큼)
+        for ( int i = n-1; i>=0; i--){
 
+            // 왼쪽은 칸 ( 이고 누적표의 숫자를 1감소시킴 ) , 오른쪽은 값
+            b[f[ a[i] ]-1]= a[i];
+            f[a[i]] = f[a[i]] - 1; // 사용된 인덱스를 감소
 
+        }
+
+        // 정렬된 결과를 원본 배열 a로 복사
+        for (int i = 0; i < n; i++) {
+            a[i] = b[i];
+        }
 
 
     }
+    public static void main(String[] args) {
+        int[] a = {5, 7, 0, 2, 4, 10, 3, 1, 3};
+        int n = a.length;
+        int max = 10; // 배열 a에서의 최대값
+
+        countingSort(a, n, max);
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+
 }
