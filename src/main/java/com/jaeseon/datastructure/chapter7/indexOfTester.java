@@ -11,11 +11,17 @@ public class indexOfTester {
         // 텍스트용
         String s1 = scanner.next();
 
+        s1 = "AB주이지스DEF이지스12";
+
         // 패턴용
         String s2 = scanner.next();
+        s2 = "이지스";
 
+
+        // 인덱스 구함 3
         int idx1 = s1.indexOf(s2);
         int idx2 = s1.lastIndexOf(s2);
+
 
         if ( idx1 == -1){
 
@@ -40,8 +46,6 @@ public class indexOfTester {
             len2 += s2.length();
 
             System.out.println("텍스트" + s1);
-
-
 
         }
 
