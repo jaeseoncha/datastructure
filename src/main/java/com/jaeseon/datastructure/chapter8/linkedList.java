@@ -198,5 +198,47 @@ public class linkedList<E> {
         }
     }
 
+    /**
+     *  리스트 내에서 같은 노드가 존재하면 앞에껏을 제외하고 나머지는 삭제 .
+     * @param c
+     */
+    public void purge(Comparator<? super E> c) {
+        Node<E> ptr = head;
+
+        while (ptr != null) {
+            int count = 0;
+            Node<E> ptr2 = ptr;
+            Node<E> pre = ptr;
+
+            while (pre.next != null) {
+                // ptr2 는 다음값 , pre 는 이전값
+                ptr2 = pre.next;
+                // 이전하고 다음값이 같으면 다음값에대한 참조값을 삭제.
+                if (c.compare(ptr.data, ptr2.data) == 0) {
+                    // 다음값에 대한 참조를 삭제
+                    pre.next = ptr2.next;
+                    count++;
+                }
+                // 이전값과 다음값이 같지않으면, 이전값을 다음값으로 삽입.
+                else
+                    pre = ptr2;
+            }
+
+            // 같은값이 없으면 다음 노드 검색할수있게 다음값을 삽입
+            if (count == 0)
+                ptr = ptr.next;
+            else {
+                // 지금 자기자신의 노드를 넣고
+                Node<E> temp = ptr;
+                // 자기자신 이후의 겹치는 모든 노드를 삭제
+                remove(ptr);
+                // 자기자신 뒤의 값을 삽입
+                ptr = temp.next;
+            }
+        }
+
+        crnt = head;
+    }
+
 
 }
