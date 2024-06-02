@@ -239,6 +239,22 @@ public class linkedList<E> {
 
         crnt = head;
     }
+    // n 개 뒤의 노드를 반환
+    public E retrieve(int n) {
+        Node<E> ptr = head;
+
+        for (; n >= 0 && ptr != null; n--) {
+            // n 번째 뒤의값
+            if (n == 0) {
+                // 현재선택포인터에 검색된값을 삼입
+                crnt = ptr;
+                return ptr.data;
+            }
+            // 다음 노드선택
+            ptr = ptr.next;
+        }
+        return null;
+    }
 
 
 }
