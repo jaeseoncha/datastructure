@@ -113,6 +113,90 @@ public class linkedList<E> {
             }
         }
     }
+    public void remove(Node p ){
+
+        if( this.head != null ){
+            // 선택한 노드가 head 일시 ( 리스트 내부에 노드 하나밖에없다는 뜻)
+            if ( p == head ){
+
+                this.removeFirst();
+            }
+        }
+        // 리스트 내부에 노드가 하나 이상일 경우
+        else {
+
+            // ptr 은 p 노드 앞의 값.
+            Node<E> ptr = head;
+
+            while(ptr.next != p){
+
+
+                ptr = ptr.next;
+                // p가
+                if( ptr == null ){
+
+                    return;
+                }
+
+            }
+            // ptr 의 다음값을   p 가 가지고있는 다음값으로  삽입 / p 와 연결된 연결값을 모두 끊어버리기에 p는 아무도 참조하지않는 노드가됨..
+            ptr.next = p.next;
+            crnt = ptr;
+
+        }
+
+    }
+
+    public void removeCurrentNode(){
+
+        remove(crnt);
+    }
+
+    public void clear(){
+
+        // 헤드가 null 일때까지 헤드값을 삭제
+        while( head != null ){
+
+            this.removeFirst();
+        }
+        crnt = null;
+
+
+    }
+
+    public boolean next(){
+
+        if(crnt == null || crnt.next == null){
+            return false;
+        }
+
+        crnt = crnt.next;
+        return true;
+    }
+
+    public void printCurrentNode (){
+
+        if( crnt == null ){
+            System.out.println(" 선택한 노드가 없다");
+
+        }
+        else{
+            System.out.println(crnt.data);
+        }
+
+    }
+
+    public void dump(){
+
+        Node<E> ptr = head;
+
+        while( ptr != null ){
+
+            System.out.println(ptr.data);
+            ptr = ptr.next;
+
+        }
+    }
 
 
 }
